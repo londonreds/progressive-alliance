@@ -22,10 +22,22 @@ body {
 
 
 /** BODY **/
-#what {
+.jumbotron {
+  margin-bottom: 0px; /* navbar-fixed-top fix */
+}
+
+h2 {
+  margin-top: 55px; /* navbar-fixed-top fix */
+}
+
+#plan li, #do li, #related li {
   padding-top: 15px;
 }
 
-#plan ol li, #do ol li {
-  padding-top: 15px;
-}
+
+/** NOTES **/
+/* Using navbar-fixed-top so without various massaging to padding / margins, links to
+ * anchors in the same page have the top of their content (usually the title of the section)
+ * hidden by the navbar. Such style changes are comments with "navbar-fixed-top fix".
+ * 
+ */
