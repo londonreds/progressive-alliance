@@ -8,26 +8,20 @@ body {
 
 
 /** HEADER **/
-#header-nav {
-  border-radius: 0;
-  border: 0;
-}
-
-#logo-img {
-  background: url('../images/restaurant-logo_large.png') no-repeat;
-  width: 150px;
-  height: 150px;
-  margin: 10px 15px 10px 0;
+.navbar {
+  margin-bottom: 0px;
 }
 
 
 /** BODY **/
 .jumbotron {
+  padding-top: 0px;
   margin-bottom: 0px; /* navbar-fixed-top fix */
 }
 
 h2 {
-  margin-top: 55px; /* navbar-fixed-top fix */
+  padding-top: 55px; /* navbar-fixed-top fix */
+  margin-top: 0px; /* navbar-fixed-top fix */
 }
 
 #plan li, #do li, #related li {
