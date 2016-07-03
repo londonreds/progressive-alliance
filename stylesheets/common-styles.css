@@ -1,0 +1,31 @@
+/* Body padding to cope with fixed header */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+
+
+/** HEADER **/
+.navbar {
+  margin-bottom: 0px;
+}
+
+
+/** BODY **/
+.jumbotron {
+  padding-top: 0px;
+  padding-bottom: 15px;
+}
+
+
+/* Using navbar-fixed-top, so need to push any page anchors up by at least 50px
+ * so the navbar doesn't cover the content when navigating to it
+ */
+.navbar-anchor {
+    display: block;
+    position: relative;
+    top: -55px;
+    visibility: hidden;
+}

@@ -1,0 +1,18 @@
+/* Make the navbar branch appear as active when on the homepage */
+/* (only do so for non-xs screen sizes - otherwise we're using a collapsed menu anyway) */
+@media (min-width: 768px) {
+    .navbar-header > .active {
+        background-color: #080808;
+        color: #fff;
+    }
+}
+
+.jumbotron h1 {
+    margin-bottom: 45px;
+}
+
+.right-button {
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 25px;
+}
