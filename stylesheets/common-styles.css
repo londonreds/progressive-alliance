@@ -7,6 +7,17 @@ body {
 }
 
 
+/* Using navbar-fixed-top, so need to push any page anchors up by at least 50px
+ * so the navbar doesn't cover the content when navigating to it
+ */
+.navbar-anchor {
+    display: block;
+    position: relative;
+    top: -55px;
+    visibility: hidden;
+}
+
+
 /** HEADER **/
 .navbar {
   margin-bottom: 0px;
@@ -19,13 +30,28 @@ body {
   padding-bottom: 15px;
 }
 
+/* Add some margin for the first paragraph in jumbotron, if it's directly under the h1 */
+.jumbotron h1 + p {
+    margin-top: 25px;
+}
 
-/* Using navbar-fixed-top, so need to push any page anchors up by at least 50px
- * so the navbar doesn't cover the content when navigating to it
- */
-.navbar-anchor {
-    display: block;
-    position: relative;
-    top: -55px;
-    visibility: hidden;
+.right-button {
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 25px;
+}
+
+.padded-list li {
+  padding-top: 20px;
+}
+
+.padded-list li > ul > li {
+    padding-top: 5px;
+}
+
+
+/** FOOTER **/
+#footer-hr {
+    margin-top: 75px;
+    margin-bottom: 25px;
 }

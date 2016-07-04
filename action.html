@@ -39,40 +39,47 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav">
+          
+          <!-- Non-mobile navbar items -->
+          <ul class="nav navbar-nav hidden-xs">
 
-            <!-- Non-mobile navbar items -->
-            <li class="dropdown hidden-xs">
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 About <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="about.html">What Is It?</a></li>
+                <li><a href="about.html#">What Is It?</a></li>
                 <li><a href="about.html#plan">What's The Plan?</a></li>
                 <li><a href="about.html#do">What Can I Do?</a></li>
-                <li><a href="about.html#related">Related</a></li>
               </ul>
             </li>
-            <li class="dropdown hidden-xs active">
+            
+            <li class="dropdown active">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Take Action <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Sign the Petition / Pledge</a></li>
-                <li><a href="#petition-general-election">Petition for Elections before Brexit</a></li>
-                <li><a href="#write-to-mp">Write to your MP</a></li>
-                <li><a href="#write-to-lord">Write to a Lord</a></li>
+                <li><a href="action.html#">Sign the Petition / Pledge</a></li>
+                <li><a href="action.html#petition-general-election">Petition for Elections before Brexit</a></li>
+                <li><a href="action.html#write-to-mp">Write to your MP</a></li>
+                <li><a href="action.html#write-to-lord">Write to a Lord</a></li>
               </ul>
             </li>
-            <!-- /Non-mobile navbar items -->
 
-            <!-- Mobile navbar items -->
-            <li class="visible-xs"><a href="index.html">Home</a></li>
-            <li class="visible-xs"><a href="about.html">About</a></li>
-            <li class="visible-xs active"><a href="#">Take Action</a></li>
-            <!-- /Mobile navbar items -->
+            <li><a href="related.html#">Related</a></li>
 
           </ul>
+          <!-- /Non-mobile navbar items -->
+
+          <!-- Mobile navbar items -->
+          <ul class="nav navbar-nav visible-xs">
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="about.html#">About</a></li>
+            <li class="active"><a href="action.html#">Take Action</a></li>
+            <li><a href="related.html#">Related</a></li>
+          </ul>
+          <!-- /Mobile navbar items -->
+
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -136,11 +143,13 @@
     <a id="write-to-mp" class="navbar-anchor"></a>
     <div class="row">
 
-      <h1>Write to your MP</h1>
+      <div>
+        <h1>Write to your MP</h1>
 
-      <p>Writing to your MP is a good way to raise awareness of your concerns with them, 
-      and may be especially important &amp; effective if you live in the constituency of 
-      a party leader, or senior member within a party.</p>
+        <p>Writing to your MP is a good way to raise awareness of your concerns with them, 
+        and may be especially important &amp; effective if you live in the constituency of 
+        a party leader, or senior member within a party.</p>
+      </div>
 
       <div class="col-md-6">
         <h2>Support a Progressive Alliance</h2>
@@ -208,11 +217,13 @@
     <a id="write-to-lord" class="navbar-anchor"></a>
     <div class="row">
 
-      <h1>Write to a member of the House of Lords</h1>
+      <div>
+        <h1>Write to a member of the House of Lords</h1>
 
-      <p>The House of Lords is not directly elected, so you do not have a specific member to
-      represent you, but you can still write to any member of the Lords to make your view known. 
-      If we all write to a member of the House of Lords we could have a significant impact!</p>
+        <p>The House of Lords is not directly elected, so you do not have a specific member to
+        represent you, but you can still write to any member of the Lords to make your view known. 
+        If we all write to a member of the House of Lords we could have a significant impact!</p>
+      </div>
       
       <p><a href="https://www.writetothem.com/about-lords" target="_blank">WriteToThem</a> makes
       it easy to find a member of the Lords.</p>
@@ -249,8 +260,8 @@
 
           <!-- delete later, once write to them page live -->
           <p>
-            <a href="#" target="_blank">
-            Draft text coming soon</a>
+            <a href="https://github.com/prog-allies/progressive-alliance/blob/master/lord-letter-election" target="_blank">
+            View draft text</a>
           </p>
         </div>
       </div>
@@ -278,7 +289,7 @@
 
     </div> <!-- row -->
 
-    <hr>
+    <hr id="footer-hr">
 
     <footer>
       <p>This project is maintained by <a href="https://github.com/prog-allies" target="_blank">prog-allies</a></p>
