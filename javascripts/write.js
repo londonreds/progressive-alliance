@@ -275,7 +275,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
         findRepresentativeText += '<h2>Find a member of the House of Lords</h2>';
         findRepresentativeText += '<p>Lords are not directly elected, so you may write to any Lord</p>'
-        findRepresentativeText += '<p>Remember, the above text is only a template, please use your own words and say why it\'s important to you!</p>'
+        findRepresentativeText += '<p class="bold-font">Remember, the above text is only a template, please use your own words and say why it\'s important to you!</p>'
 
         findRepresentativeLinks += '<a class="btn btn-lg btn-primary" href="https://www.writetothem.com/lords?random_lord=1" target="_blank" role="button">Find a random Lord &raquo;</a>';
         findRepresentativeLinks += '<a class="btn btn-lg btn-primary" href="https://www.writetothem.com/lords" target="_blank" role="button">Search for a Lord &raquo;</a>';
@@ -287,7 +287,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
         findRepresentativeText += '<h2>Find your MP</h2>';
         findRepresentativeText += '<p>Only write to the MP who represents the constituency where you live, otherwise you will be ignored<br>';
         findRepresentativeText += 'Always include your full name and address so the MP knows you live in their constituency</p>';
-        findRepresentativeText += '<p>Remember, the above text is only a template, please use your own words and say why it\'s important to you!</p>';
+        findRepresentativeText += '<p class="bold-font">Remember, the above text is only a template, please use your own words and say why it\'s important to you!</p>';
 
         findRepresentativeLinks += '<form method="get" action="https://www.writetothem.com/" target="_blank"><div class="input-group pull-right">';
         findRepresentativeLinks += '<input type="text" id="postcode" name="pc" placeholder="Postcode" size="14">';

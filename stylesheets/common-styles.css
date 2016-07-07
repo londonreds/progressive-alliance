@@ -30,10 +30,10 @@ body {
   padding-bottom: 15px;
 }
 
-/* Add some margin for the first paragraph in jumbotron, if it's directly under the h1 */
 .jumbotron h1 + p {
-    margin-top: 25px;
+    margin-top: 25px;   /* Add some margin for the first paragraph in jumbotron, if it's directly under the h1 */
 }
+
 
 .right-button {
     text-align: right;
@@ -45,12 +45,18 @@ body {
     margin-left: 35px;  /* Force multiple right-aligned buttons on the same line away from each other */
 }
 
+
 .padded-list li {
   padding-top: 20px;
 }
 
 .padded-list li > ul > li {
     padding-top: 5px;
+}
+
+
+.bold-font {
+    font-weight: bold;
 }
 
 
