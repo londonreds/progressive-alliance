@@ -1,0 +1,31 @@
+#letter-talking-points-copy {
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    color: rgba(0, 0, 0, 0);    /* transparent */
+    visibility: hidden;
+}
+
+.copy-success, .copy-success:hover, .copy-success:focus, .copy-success:active {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.copy-failed, .copy-failed:hover, .copy-failed:focus, .copy-failed:active {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+#postcode {
+    font-size: 20px;
+    line-height: 38px;
+    width: 115px;
+    border-radius: 6px;
+    vertical-align: middle;
+}

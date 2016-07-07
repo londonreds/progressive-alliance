@@ -37,8 +37,12 @@ body {
 
 .right-button {
     text-align: right;
-    padding-top: 10px;
-    padding-right: 25px;
+    margin-top: 10px;
+    margin-right: 25px;
+}
+
+.right-button a, .right-button button {
+    margin-left: 35px;  /* Force multiple right-aligned buttons on the same line away from each other */
 }
 
 .padded-list li {
