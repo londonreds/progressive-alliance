@@ -34,6 +34,10 @@ body {
     margin-top: 25px;   /* Add some margin for the first paragraph in jumbotron, if it's directly under the h1 */
 }
 
+.jumbotron .nav-stacked {
+    max-width: 500px;
+}
+
 
 .right-button {
     text-align: right;

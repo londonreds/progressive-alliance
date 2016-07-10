@@ -1,81 +1,3 @@
-(function (global) {
-    
-    var progAlliesJsUtils = {};
-
-    progAlliesJsUtils.getUrlParameter = function (name) {
-        console.log("getUrlParameter called for [" + name + "]");
-
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
-    }
-
-    progAlliesJsUtils.insertHtml = function (domSelector, htmlToInsert) {
-        console.log("insertHtml called for [" + domSelector + "], [" + htmlToInsert + "]");
-
-        var targetElement = document.querySelector(domSelector);
-        targetElement.innerHTML = htmlToInsert;
-    };
-
-    progAlliesJsUtils.toHtmlList = function(stringArray) {
-        console.log("toHtmlList called for [" + stringArray + "]");
-
-        var htmlString = "";
-        for (var i = 0; i < stringArray.length; i++) {
-            htmlString += "<li>" + stringArray[i] + "</li>";
-        }
-        return htmlString;
-    }
-
-    progAlliesJsUtils.getRandomSubArray = function (array, noOfElements) {
-        console.log("getRandomSubArray called for [" + array + "], [" + noOfElements + "]");
-
-        var randomArray = [];
-
-        for (var i=0; i<noOfElements; i++) {
-            // Pick a random index
-            let index = Math.floor(Math.random() * array.length);
-            console.log("getRandomSubArray got random index [" + index + "]");
-
-            if (!jQuery.isArray(array[index])) {
-                // Standard case - the value is not an array, so just use it
-                // Add the randomly chosen element from the original array to the randomArray
-                randomArray[i] = array[index];
-                console.log("getRandomSubArray got element [" + array[index] + "] at [" + index + "]");
-            } else {
-                // Special case - the value is an array - get a random element from this array and use it
-                let subIndex = Math.floor(Math.random() * array[index].length);
-                randomArray[i] = array[index][subIndex];
-                console.log("getRandomSubArray got element [" + array[index][subIndex] + "] at [" + index + "][" + subIndex + "]");
-            }
-
-            // Remove the element from the array
-            array.splice(index,1);
-            console.log("getRandomSubArray spliced array [" + array + "]");
-        }
-
-        return randomArray;
-    }
-
-    progAlliesJsUtils.copyTextToClipboard = function (textInputToCopy) {
-        console.log("copyTextToClipboard called for [" + textInputToCopy + "]");
-
-        textInputToCopy.select();
-
-        var success = false;
-        try {
-            success = document.execCommand('copy');
-            console.log("executed copy command");
-        } catch (err) {
-            console.log("Could not copy [" + err + "]");
-        }
-        return success;
-    }
-
-    // Expose utility to the global object
-    global.$progAlliesJsUtils = progAlliesJsUtils;
-
-})(window);
-
-
 $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
     console.log(window);
@@ -137,6 +59,27 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
     // *** Create the specific talking points for this letter ***
 
+    // Call for a Progressive Alliance of Parties talking points
+    var allianceOpening = [
+        
+    ];
+
+    var allianceTalkingPoints = [
+        [
+
+        ]
+    ];
+
+    var allianceClosingLord = [
+
+    ];
+
+    var allianceClosingMp = [
+
+    ];
+    // End of Call for a Progressive Alliance of Parties talking points
+
+    // Call for a General Election talking points
     var electionOpening = [
         "Following the vote to leave the European Union, there must be a general election. ",
         "Before Article 50 is triggered and negotiations on 'Brexit' start, there should be an election. ",
@@ -192,6 +135,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
         "Due to these reasons, the Government should not begin official negotiations on leaving the EU until the people have their say in a general election. ",
         "For these reasons, the House of Commons should reject any motion to trigger Article 50, and push for a General Election to be held. "
     ];
+    // End of Call for a General Election talking points
 
 
     var header;
@@ -285,8 +229,8 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
         console.log("representativeType is defaulted to MP");
 
         findRepresentativeText += '<h2>Find your MP</h2>';
-        findRepresentativeText += '<p>Only write to the MP who represents the constituency where you live, otherwise you will be ignored<br>';
-        findRepresentativeText += 'Always include your full name and address so the MP knows you live in their constituency</p>';
+        findRepresentativeText += '<p>Only write to the MP who represents the constituency where you live, otherwise you will be ignored.<br>';
+        findRepresentativeText += 'Always include your full name and address so the MP knows you live in their constituency.</p>';
         findRepresentativeText += '<p class="bold-font">Remember, the above text is only a template, please use your own words and say why it\'s important to you!</p>';
 
         findRepresentativeLinks += '<form method="get" action="https://www.writetothem.com/" target="_blank"><div class="input-group pull-right">';
