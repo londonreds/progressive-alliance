@@ -385,7 +385,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 
     // *** Create and insert appropriate social media buttons ***
-    var fbShareButton = '<div class="fb-share-button" data-href="https://prog-allies.github.io/progressive-alliance/write.html?representativeType=' + representativeType + '&amp;issue=' + issue + '" data-layout="button" data-size="small" data-mobile-iframe="true">';
+    var fbShareButton = '<div class="fb-share-button" data-href="https://prog-allies.github.io/progressive-alliance/write.html?representativeType=' + representativeType + '&amp;issue=' + issue + '" data-layout="button" data-size="small" data-mobile-iframe="false">';
     fbShareButton += '<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fprog-allies.github.io%2Fprogressive-alliance%2Fwrite.html%3FrepresentativeType%3D' + representativeType + '%26issue%3D' + issue + '&amp;src=sdkpreparse">Share</a></div>';
     
     $progAlliesJsUtils.insertHtml(
