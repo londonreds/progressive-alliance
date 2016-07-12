@@ -12,6 +12,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 
     // *** Update meta tags ***
+    /* TODO: This doesn't work - dynamic updates to og: attributes do not get picked up by fb...
     var ogTitle = "";
     var ogDescription = "";
     var ogImage = "";
@@ -32,6 +33,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
     $('meta[property=og\\:title]').attr('content',  ogTitle);
     $('meta[property=og\\:description]').attr('content', ogDescription);
     $('meta[property=og\\:image]').attr('content', ogImage);
+    */
     // *** Finished updating meta tags
 
 
