@@ -32,15 +32,30 @@ $('.navbar a').on('click', function(){
         return htmlString;
     }
 
-    progAlliesJsUtils.getRandomSubArray = function (array, noOfElements) {
-        console.log("getRandomSubArray called for [" + array + "], [" + noOfElements + "]");
+    /**
+     * Take an array, and rreturn a subArray comprised of a specific number of elements, chosen at random.
+     * 
+     * If the element is itself an array, then a single element from this array will be used at random.
+     * This allows certain elements to be mutually exclusive.
+     * 
+     * If the 'maintainOrder' parameter is true, the order of elements in the top level array will be maintained.
+     * This means the elements of the top-level array will NOT be random.
+     * However, if the top-level array contains sub-arrays, these will still have a single element chosen at random.
+     */
+    progAlliesJsUtils.getRandomSubArray = function (array, noOfElements, maintainOrder) {
+        // Default 'maintainOrder' to false
+        maintainOrder = ( (typeof maintainOrder) !== 'undefined' ? maintainOrder : false );
+        
+        console.log("getRandomSubArray called for [" + array + "], [" + noOfElements + "], [" + maintainOrder + "]");
 
         var randomArray = [];
 
         for (var i=0; i<noOfElements; i++) {
-            // Pick a random index
-            let index = Math.floor(Math.random() * array.length);
-            console.log("getRandomSubArray got random index [" + index + "]");
+
+            // Use 0 for the index if maintainOrder is true (because after each iteration an element is removed, so 0 will always use the head of the array)
+            // Otherwise pick a random index
+            let index = ( maintainOrder ? 0 : (Math.floor(Math.random() * array.length)) );
+            console.log("getRandomSubArray got " + (maintainOrder ? "ordered" : "random") + " index [" + index + "]");
 
             if (!jQuery.isArray(array[index])) {
                 // Standard case - the value is not an array, so just use it
@@ -51,7 +66,7 @@ $('.navbar a').on('click', function(){
                 // Special case - the value is an array - get a random element from this array and use it
                 let subIndex = Math.floor(Math.random() * array[index].length);
                 randomArray[i] = array[index][subIndex];
-                console.log("getRandomSubArray got element [" + array[index][subIndex] + "] at [" + index + "][" + subIndex + "]");
+                console.log("getRandomSubArray setting randomArray[" + i + "] to value [" + array[index][subIndex] + "] at [" + index + "][" + subIndex + "]");
             }
 
             // Remove the element from the array
@@ -59,6 +74,7 @@ $('.navbar a').on('click', function(){
             console.log("getRandomSubArray spliced array [" + array + "]");
         }
 
+        console.log("getRandomSubArray returning [" + randomArray + "]");
         return randomArray;
     }
 

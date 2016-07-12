@@ -78,8 +78,8 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 
     // Add listener for the buttons
-    $('#prog-allies-petition').click(function(event) { console.log("clicked prog-allies-petition"); updatePage("progAlliesPetition"); });
-    $('#no-confidence-petition').click(function(event) { console.log("clicked no-confidence-petition"); updatePage("noConfidencePetition"); });
+    $('#prog-allies-petition').click(function(event) { updatePage("progAlliesPetition"); });
+    $('#no-confidence-petition').click(function(event) { updatePage("noConfidencePetition"); });
 
     // Call update page based on the draftId param passed to the page
     if (draftId == "noConfidencePetition") {

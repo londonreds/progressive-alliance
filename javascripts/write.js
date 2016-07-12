@@ -11,10 +11,10 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
     // Standard / common tips
     var commonLetterTips = [
-        "Always be polite - if you are rude or use an aggressive tone you are likely to be ignored",
-        "Try to be as clear and concise as possible, while still getting your message across",
-        "Personalise your letter - you are more likely to be listened to if you say why it matters to you, and how it affects you",
-        "If you can, tailor your message to the politician you are sending it to - bear in mind the party they belong to and their priorities"
+        "<strong>Always be polite</strong> - if you are rude or use an aggressive tone you are likely to be ignored",
+        "<strong>Be as clear and concise as possible</strong>, while still getting your message across",
+        "<strong>Personalise your letter</strong> - you are more likely to be listened to if you say why it matters to you, and give examples of how it directly affects you",
+        "<strong>Tailor your message to the politician you are sending it to</strong> - bear in mind the party they belong to and their priorities"
     ];
 
     // Tips specifically for Lords
@@ -137,14 +137,90 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
     ];
     // End of Call for a General Election talking points
 
+    // Call for a Progressive Alliance of Parties talking points
+    var fairBrexitOpening = [
+        [
+            "Following the vote to leave the European Union, there are many questions about what Brexit should look like.",
+            "Before Article 50 is triggered, the country must have a strategy for the exit negotiations.",
+            "The United Kingdom has voted for Brexit, but what life outside the EU will look like is still unclear.",
+            "When official 'Brexit' negotiations start with the EU, they will only have two years to conclude, so we should know in advance the negotiating position."
+        ],
+        [
+            "As well as negotiations with the EU, there will inevitably be conversations and negotiations with other countries regarding trade deals.",
+            "This extends to free trade agreements with countries outside of the EU, as well as our relationship with the EU itself.",
+            "The EU currently has various trade agreements in place, and others in discussion, and the UK will likely be involved in its own trade negotiations with many countries."
+        ],
+        [
+            "In this uncertain time, the government and MPs of all parties must do all they can to: ",
+            "When negotiating with the EU and other governments, representatives of the UK should do their utmost to achieve the following: ",
+            "During negotiations, all representatives must work together to ensure the best possible outcome for Brexit, including: ",
+            "When replacing EU laws and discussing terms of 'Brexit', the following aims should be adhered to: "
+        ]
+    ];
+
+    var fairBrexitTalkingPoints = [
+        [
+            "Guarantee the right to live &amp; work for all those currently living in the UK, both from the EU and from outside. ",
+            "Protect the rights of migrants from the EU and elsewhere to live and work in the UK, especially those already here. "
+        ],
+        [
+            "Protect human rights in the UK. ",
+            "Maintain all human rights."
+        ],
+        [
+            "Protect workers rights in the UK.",
+            "Maintain all workers rights. "
+        ],
+        [
+            "Ensure environmental protections &amp; safeguards are maintained. ",
+            "Protect the environment, air quality, and renewable energy."
+        ],
+        [
+            "Ensure that the public services of the UK are not put at risk of privatisation. ",
+            "Protect public services such as the NHS from privatisation and underfunding."
+        ],
+        [
+            "Respect other nations in any trade deals made.",
+            "Ensure the rights of foreign workers are respected during trade negotiations. "
+        ],
+        [
+            "Protect grant funding to agriculture, science and local communities which previously came from the EU budget. ",
+            "Maintain funding for local communities and areas such as research &amp; agriculture such that they do not suffer as a result of Brexit."
+        ]
+    ];
+
+    var fairBrexitClosingLord = [
+        "Please do all you can to achieve the above goals both within the House of Lords, and with your colleages in the House of Commons.",
+        "Members of the Lords from all parties should come together to work for these aims. ",
+        "All representatives of the Lords and the Commons must work together to make sure these are protected in the wake of Brexit.",
+        "Representatives across the political spectrum should work to ensure these rights and protections are maintained once the UK is no longer a member of the EU. "
+    ];
+
+    var fairBrexitClosingMp = [
+        "Please do everything you can to achieve the above aims in the House of Commons, and encourage your colleages in the Lords to do the same. ",
+        "MPs from all political parties must come together to help achieve these goals.",
+        "Representatives from the House of Commons and the House of Lords should work together to make sure they are protected after the UK has left the EU. ",
+        "Politicians from all sides must work together in the interests of the people to ensure the above protections &amp; rights remain in place after Brexit."
+    ];
+    // End of Call for a Progressive Alliance of Parties talking points
+
 
     var header;
-    var opening;
-    var talkingPoints;
-    var closing;
 
-    var letterTalkingPointsHtml = "";
-    var letterTalkingPointsText = "";
+    var opening;
+    var openingPreHtml = "<ul>";
+    var openingPostHtml = "";
+    var openingJoinString = " ";
+
+    var talkingPoints;
+    var talkingPointsPreHtml = "";
+    var talkingPointsPostHtml = "";
+    var talkingPointsJoinString ="\n";
+
+    var closing;
+    var closingPreHtml = "";
+    var closingPostHtml = "</ul>";
+    var closingJoinString = " ";
 
     if (issue == "election") {
         // Insert content for General Election
@@ -153,6 +229,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
         header = "Talking Points for calling a General Election";
 
         opening = $progAlliesJsUtils.getRandomSubArray(electionOpening,1);
+
         talkingPoints = $progAlliesJsUtils.getRandomSubArray(electionTalkingPoints,3);
 
         if (representativeType == "lord") {
@@ -164,6 +241,29 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
             // Default to MP
             console.log("representativeType is defaulted to MP");
             closing = $progAlliesJsUtils.getRandomSubArray(electionClosingMp,1);
+        }
+
+    } else if (issue == "fairBrexit") {
+        // Insert content for Fair Brexit
+        console.log("issue is fairBrexit");
+
+        header = "Talking Points for a Fair Brexit";
+
+        opening = $progAlliesJsUtils.getRandomSubArray(fairBrexitOpening,3,true);
+
+        talkingPointsPreHtml = "<ul>";
+        talkingPoints = $progAlliesJsUtils.getRandomSubArray(fairBrexitTalkingPoints,7);
+        talkingPointsPostHtml = "</ul>";
+
+        if (representativeType == "lord") {
+            // Insert content for Lord
+            console.log("representativeType is lord");
+            closing = $progAlliesJsUtils.getRandomSubArray(fairBrexitClosingLord,1);
+
+        } else {
+            // Default to MP
+            console.log("representativeType is defaulted to MP");
+            closing = $progAlliesJsUtils.getRandomSubArray(fairBrexitClosingMp,1);
         }
 
     } else {
@@ -184,11 +284,11 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
     }
 
     // Build and insert the HTML onto the page
-    letterTalkingPointsHtml += "<h2>" + header + "</h2><ul>";
-    letterTalkingPointsHtml += $progAlliesJsUtils.toHtmlList(opening);
-    letterTalkingPointsHtml += $progAlliesJsUtils.toHtmlList(talkingPoints);
-    letterTalkingPointsHtml += $progAlliesJsUtils.toHtmlList(closing);
-    letterTalkingPointsHtml += "</ul>";
+    var letterTalkingPointsHtml = "";
+    letterTalkingPointsHtml += "<h2>" + header + "</h2>";
+    letterTalkingPointsHtml += openingPreHtml + $progAlliesJsUtils.toHtmlList(opening) + openingPostHtml;
+    letterTalkingPointsHtml += talkingPointsPreHtml + $progAlliesJsUtils.toHtmlList(talkingPoints) + talkingPointsPostHtml;
+    letterTalkingPointsHtml += closingPreHtml + $progAlliesJsUtils.toHtmlList(closing) + closingPostHtml;
 
     $progAlliesJsUtils.insertHtml(
         "#letter-talking-points",
@@ -196,9 +296,10 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
     );
 
     // Build and insert the text into the textArea
-    letterTalkingPointsText += opening.join("\n") + "\n\n";
-    letterTalkingPointsText += talkingPoints.join("\n") + "\n\n";
-    letterTalkingPointsText += closing.join("\n") + "\n";
+    var letterTalkingPointsText = "";
+    letterTalkingPointsText += opening.join(openingJoinString) + "\n\n";
+    letterTalkingPointsText += talkingPoints.join(talkingPointsJoinString) + "\n\n";
+    letterTalkingPointsText += closing.join(closingJoinString) + "\n";
 
     $progAlliesJsUtils.insertHtml(
         "#letter-talking-points-copy",
@@ -231,7 +332,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
         findRepresentativeText += '<h2>Find your MP</h2>';
         findRepresentativeText += '<p>Only write to the MP who represents the constituency where you live, otherwise you will be ignored.<br>';
         findRepresentativeText += 'Always include your full name and address so the MP knows you live in their constituency.</p>';
-        findRepresentativeText += '<p class="bold-font">Remember, the above text is only a template, please use your own words and say why it\'s important to you!</p>';
+        findRepresentativeText += '<p><strong>Remember, the above text is only a template, please use your own words and say why it\'s important to you!</strong></p>';
 
         findRepresentativeLinks += '<form method="get" action="https://www.writetothem.com/" target="_blank"><div class="input-group pull-right">';
         findRepresentativeLinks += '<input type="text" id="postcode" name="pc" placeholder="Postcode" size="14">';
