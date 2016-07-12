@@ -7,8 +7,9 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
     var issue = $progAlliesJsUtils.getUrlParameter("issue");
 
     // Default variables
-    representativeType = ( (typeof representativeType) !== 'undefined' ? representativeType : "mp" );
-    issue = ( (typeof issue) !== 'undefined' ? issue : "election" );
+    representativeType = ( (typeof representativeType !== 'undefined' && representativeType != null) ? representativeType : "mp" );
+    issue = ( (typeof issue !== 'undefined' && issue != null) ? issue : "fairBrexit" );
+    console.log("representativeType=[" + representativeType + "], issue=[" + issue + "]");
 
 
     // *** Update meta tags ***
