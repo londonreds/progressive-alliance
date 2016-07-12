@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- facebook sharing properties -->
+    <meta property="og:url"           content="" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="" />
+    <meta property="og:description"   content="" />
+    <meta property="og:image"         content="" />
+
     <title>Progressive Alliance UK - Take Action</title>
 
     <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
@@ -127,6 +134,23 @@
 
     <!-- TextArea to populate with the talking points so they can be copied to clipboard -->
     <textarea id="letter-talking-points-copy"></textarea>
+
+    <!-- clearfix - ensure social media is below everything else -->
+    <div class="clearfix"></div>
+
+
+    <!-- facebook script -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- container for social media -->
+    <div id="social-media" class="container"></div>
 
 
     <hr id="footer-hr">

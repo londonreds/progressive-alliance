@@ -6,6 +6,34 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
     var representativeType = $progAlliesJsUtils.getUrlParameter("representativeType");
     var issue = $progAlliesJsUtils.getUrlParameter("issue");
 
+    // Default variables
+    representativeType = ( (typeof representativeType) !== 'undefined' ? representativeType : "mp" );
+    issue = ( (typeof issue) !== 'undefined' ? issue : "election" );
+
+
+    // *** Update meta tags ***
+    var ogTitle = "";
+    var ogDescription = "";
+    var ogImage = "";
+
+    if (issue == "election") {
+        ogTitle = "Progressive Alliance - Take Action for a General Election";
+        ogDescription = "Write to your MP or a Lord, calling for a General Election before Article 50 is invoked";
+        ogImage = "";
+    } else if (issue == "fairBrexit") {
+        ogTitle = "Progressive Alliance - Take Action for a Fair Brexit";
+        ogDescription = "Write to your MP or a Lord, urging them to support a Fair Brexit, protecting human rights, workers rights, and the environment";
+        ogImage = "https://prog-allies.github.io/progressive-alliance/images/fbShareBanner-fairBrexit.png";
+    } else {
+
+    }
+
+    $('meta[property=og\\:url]').attr('content', 'https://prog-allies.github.io/progressive-alliance/write.html?representativeType=' + representativeType + '&amp;issue=' + issue);
+    $('meta[property=og\\:title]').attr('content',  ogTitle);
+    $('meta[property=og\\:description]').attr('content', ogDescription);
+    $('meta[property=og\\:image]').attr('content', ogImage);
+    // *** Finished updating meta tags
+
 
     // *** Create the general letter tips for the appropriate type of representative ***
 
@@ -352,6 +380,17 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
     );
 
     // *** Finished creating and inserting the appropriate buttons for finding a representative ***
+
+
+    // *** Create and insert appropriate social media buttons ***
+    var fbShareButton = '<div class="fb-share-button" data-href="https://prog-allies.github.io/progressive-alliance/write.html?representativeType=' + representativeType + '&amp;issue=' + issue + '" data-layout="button" data-size="small" data-mobile-iframe="false">';
+    fbShareButton += '<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fprog-allies.github.io%2Fprogressive-alliance%2Fwrite.html%3FrepresentativeType%3D' + representativeType + '%26issue%3D' + issue + '&amp;src=sdkpreparse">Share</a></div>';
+    
+    $progAlliesJsUtils.insertHtml(
+        "#social-media",
+        fbShareButton
+    );
+    // *** Finished creating and insert appropriate social media buttons ***
 
 
     // Add listener for the copy-to-clip button
