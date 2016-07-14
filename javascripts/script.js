@@ -4,27 +4,48 @@ $('.navbar a').on('click', function(){
 });
 
 
+// Facebook Script
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
+// Twitter Script
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));
+
+
 // Javascript util functions
 (function (global) {
     
     var progAlliesJsUtils = {};
 
     progAlliesJsUtils.getUrlParameter = function (name) {
-        console.log("getUrlParameter called for [" + name + "]");
-
         return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
     }
 
     progAlliesJsUtils.insertHtml = function (domSelector, htmlToInsert) {
-        console.log("insertHtml called for [" + domSelector + "], [" + htmlToInsert + "]");
-
         var targetElement = document.querySelector(domSelector);
         targetElement.innerHTML = htmlToInsert;
     };
 
     progAlliesJsUtils.toHtmlList = function(stringArray) {
-        console.log("toHtmlList called for [" + stringArray + "]");
-
         var htmlString = "";
         for (var i = 0; i < stringArray.length; i++) {
             htmlString += "<li>" + stringArray[i] + "</li>";
@@ -45,7 +66,7 @@ $('.navbar a').on('click', function(){
     progAlliesJsUtils.getRandomSubArray = function (array, noOfElements, maintainOrder) {
         // Default 'maintainOrder' to false
         maintainOrder = ( (typeof maintainOrder) !== 'undefined' ? maintainOrder : false );
-        
+
         console.log("getRandomSubArray called for [" + array + "], [" + noOfElements + "], [" + maintainOrder + "]");
 
         var randomArray = [];
@@ -79,16 +100,13 @@ $('.navbar a').on('click', function(){
     }
 
     progAlliesJsUtils.copyTextToClipboard = function (textInputToCopy) {
-        console.log("copyTextToClipboard called for [" + textInputToCopy + "]");
-
         textInputToCopy.select();
 
         var success = false;
         try {
             success = document.execCommand('copy');
-            console.log("executed copy command");
         } catch (err) {
-            console.log("Could not copy [" + err + "]");
+            console.log("Could not copy [" + textInputToCopy + "], exception was [" + err + "]");
         }
         return success;
     }

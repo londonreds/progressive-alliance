@@ -3,39 +3,17 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
     console.log(window);
     console.log("Main DOMContentLoaded function called");
 
+    // Extract variables from the URL
+    var issue = new RegExp('write-([A-Za-z]+)\.html').exec(window.location.pathname)[1] || null;
     var representativeType = $progAlliesJsUtils.getUrlParameter("representativeType");
-    var issue = $progAlliesJsUtils.getUrlParameter("issue");
 
-    // Default variables
-    representativeType = ( (typeof representativeType !== 'undefined' && representativeType != null) ? representativeType : "mp" );
-    issue = ( (typeof issue !== 'undefined' && issue != null) ? issue : "fairBrexit" );
     console.log("representativeType=[" + representativeType + "], issue=[" + issue + "]");
 
+    // Default variables
+    issue = ( (typeof issue !== 'undefined' && issue != null) ? issue : "fairBrexit" );
+    representativeType = ( (typeof representativeType !== 'undefined' && representativeType != null) ? representativeType : "mp" );
 
-    // *** Update meta tags ***
-    /* TODO: This doesn't work - dynamic updates to og: attributes do not get picked up by fb...
-    var ogTitle = "";
-    var ogDescription = "";
-    var ogImage = "";
-
-    if (issue == "election") {
-        ogTitle = "Progressive Alliance - Take Action for a General Election";
-        ogDescription = "Write to your MP or a Lord, calling for a General Election before Article 50 is invoked";
-        ogImage = "";
-    } else if (issue == "fairBrexit") {
-        ogTitle = "Progressive Alliance - Take Action for a Fair Brexit";
-        ogDescription = "Write to your MP or a Lord, urging them to support a Fair Brexit, protecting human rights, workers rights, and the environment";
-        ogImage = "https://prog-allies.github.io/progressive-alliance/images/fbShareBanner-fairBrexit.png";
-    } else {
-
-    }
-
-    $('meta[property=og\\:url]').attr('content', 'https://prog-allies.github.io/progressive-alliance/write.html?representativeType=' + representativeType + '&amp;issue=' + issue);
-    $('meta[property=og\\:title]').attr('content',  ogTitle);
-    $('meta[property=og\\:description]').attr('content', ogDescription);
-    $('meta[property=og\\:image]').attr('content', ogImage);
-    */
-    // *** Finished updating meta tags
+    console.log("representativeType=[" + representativeType + "], issue=[" + issue + "]");
 
 
     // *** Create the general letter tips for the appropriate type of representative ***
@@ -386,12 +364,35 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 
     // *** Create and insert appropriate social media buttons ***
-    var fbShareButton = '<div class="fb-share-button" data-href="https://prog-allies.github.io/progressive-alliance/write.html?representativeType=' + representativeType + '&amp;issue=' + issue + '" data-layout="button" data-size="small" data-mobile-iframe="false">';
-    fbShareButton += '<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fprog-allies.github.io%2Fprogressive-alliance%2Fwrite.html%3FrepresentativeType%3D' + representativeType + '%26issue%3D' + issue + '&amp;src=sdkpreparse">Share</a></div>';
-    
+    var socialMedia = '';
+    var shareUrl = 'https://prog-allies.github.io/progressive-alliance/write-' + issue + '.html?representativeType=' + representativeType;
+
+    // Add fb Like & Share button
+    socialMedia += '<div id="like" class="fb-like" data-href="' + shareUrl + '" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>';
+
+    // Add twitter Share button
+    var tweetText;
+    var tweetHashTags;
+    if (issue == "election") {
+        tweetText = 'Call for a General Election before Article 50';
+        tweetHashTags = 'GeneralElectionNow';
+    } else if (issue == "fairBrexit") {
+        tweetText = 'Call for a Fair Brexit, protect our rights and environment';
+        tweetHashTags = 'FairBrexit';
+    } else {
+        tweetText = 'Call for a Progressive Alliance, protect our rights and environment';
+        tweetHashTags = 'ProgressiveAlliance';
+    }
+    socialMedia += '<div id="tweet"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text='
+                    + encodeURI(tweetText) + '&hashtags=' + tweetHashTags
+                    + '&url=' + encodeURI(shareUrl) + '">Tweet</a></div>';
+
+    console.log("socialMedia is [" + socialMedia + "]");
+
+    // insert HTML into the page
     $progAlliesJsUtils.insertHtml(
         "#social-media",
-        fbShareButton
+        socialMedia
     );
     // *** Finished creating and insert appropriate social media buttons ***
 

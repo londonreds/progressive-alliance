@@ -7,17 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- facebook / opengraph sharing metadata -->
-    <meta property="og:url"           content="https://prog-allies.github.io/progressive-alliance/about.html" />
+    <meta property="og:url"           content="https://prog-allies.github.io/progressive-alliance/write-election.html" />
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Progressive Alliance" />
-    <meta property="og:description"   content="Work together to protect Human Rights, Workers Rights, and the Environment" />
-    <meta property="og:image"         content="https://prog-allies.github.io/progressive-alliance/images/fbShareBanner.png" />
+    <meta property="og:title"         content="Progressive Alliance - Call for a General Election" />
+    <meta property="og:description"   content="Call for a General Election before Article 50 is invoked - The Conservative party have no mandate for what the UK's exit from the EU should look like" />
+    <meta property="og:image"         content="https://prog-allies.github.io/progressive-alliance/images/fbShareBanner-election-blueBg.png" />
 
-    <title>Progressive Alliance UK - About</title>
+    <title>Progressive Alliance UK - Take Action</title>
 
     <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheets/common-styles.css">
-    <link rel="stylesheet" href="stylesheets/about-styles.css">
+    <link rel="stylesheet" href="stylesheets/write-styles.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
@@ -41,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html#">Progressive Alliance UK</a>
+          <a class="navbar-brand" href="index.html">Progressive Alliance UK</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,7 +51,7 @@
           <!-- Non-mobile navbar items -->
           <ul class="nav navbar-nav hidden-xs">
 
-            <li class="dropdown active">
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 About <span class="caret"></span>
               </a>
@@ -61,7 +62,7 @@
               </ul>
             </li>
             
-            <li class="dropdown">
+            <li class="dropdown active">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Take Action <span class="caret"></span>
               </a>
@@ -81,8 +82,8 @@
           <!-- Mobile navbar items -->
           <ul class="nav navbar-nav visible-xs">
             <li><a href="index.html#">Home</a></li>
-            <li class="active"><a href="about.html#">About</a></li>
-            <li><a href="action.html#">Take Action</a></li>
+            <li><a href="about.html#">About</a></li>
+            <li class="active"><a href="action.html#">Take Action</a></li>
             <li><a href="related.html#">Related</a></li>
           </ul>
           <!-- /Mobile navbar items -->
@@ -96,13 +97,11 @@
   <!-- Main jumbotron -->
   <div id="jumbotron" class="jumbotron">
     <div class="container">
-      <h1>About the Progressive Alliance UK</h1>
+      <h1>Write to your Representative</h1>
 
-      <div id="what" class="container">
-        <h2>What is it?</h2>
-        <p>A call for people to come together and work to eliminate the worst-case Brexit scenario - not just an erosion of human rights, 
-        workers rights, and environmental protections, but a veritable bonfire of them.</p>
-        <p>We need support from members of the public, and all of those involved with progressive political parties.</p>
+      <!-- general-letter-tips will be populated by javascript later -->
+      <div id="general-letter-tips" class="container">
+        Loading...
       </div>
 
     </div>
@@ -111,48 +110,39 @@
 
   <div class="container">
 
-    <div class="row">
+    <!-- letter-talking-points will be populated by javascript later -->
+    <div id="letter-talking-points" class="container">
+      Loading...
+    </div>
 
-      <a id="plan" class="navbar-anchor"></a>
-      <div class="col-md-6">
-        <h2>What's The Plan?</h2>
-        <ol class="padded-list">
-          <li>Build support and make connections with others in the UK who support a progressive alliance to fight for our rights and 
-          protections in a post-Brexit world.</li>
-          <li>Lobby the progressive political parties to come together to form a progressive alliance to this end</li>
-          <li>Push for a General Election before any Brexit negotiations begin - no party has a manifesto for what a post-Brexit UK looks 
-          like, and as such the Conservatives have no mandate to start Brexit negotiations</li>
-          <li>Lobby all parties, including the Conservatives, to protect our rights and maintain protections (ie. contingency)</li>
-        </ol>
-      </div>
+    <div class="right-button">
+      <p>
+        <a id="copy-to-clip" class="btn btn-lg btn-primary" role="button">Copy to clipboard &raquo;</a>
+      </p>
+    </div>
 
-      <a id="do" class="navbar-anchor"></a>
-      <div class="col-md-6">
-        <h2>What Can I Do?</h2>
-        <ol class="padded-list">
-          <li>Like and share the <a href="https://www.facebook.com/progallies/" target="_blank">Facebook Page</a>, discuss it, get involved. We need you.</li>
-          <li>Sign the petition / pledge! The more signatures we have, the more we can show political parties who have long been 
-          adversaries that this is workable and our best chance of avoiding a nightmare Brexit scenario.</li>
-          <li>If you live in an area with an MP belonging to a progressive party, then <a href="action.html#write-to-mp">write to them</a> and ask them to 
-          sign the pledge &amp; support an early General Election! If you get a response, please let us know so we can share!</li>
-          <li>If you live in an area with an MP belonging to a non-progressive party, you can still <a href="action.html#write-to-mp">write to them</a> and 
-          ask them to pledge to keep EU human rights, workers rights, and environmental protections, as well as supporting an early General Election.</li>
-        </ol>
-      </div>
+    <!-- find-representative will be populated by javascript later -->
+    <div id="find-representative-text" class="container">
+      Loading...
+    </div>
 
-    </div> <!-- row -->
+    <div class="right-button">
+      <p id="find-representative-links">
+        Loading...
+      </p>
+    </div>
+
+
+    <!-- TextArea to populate with the talking points so they can be copied to clipboard -->
+    <textarea id="letter-talking-points-copy"></textarea>
 
 
     <!-- social media -->
     <div class="clearfix"></div>  <!-- ensure social media is below everything else -->
     <hr id="social-media-hr">
-    
+
     <div id="fb-root"></div>  <!-- required for facebook -->
-    <div id="social-media" class="container text-center center-block">
-      <div id="like" class="fb-like" data-href="https://prog-allies.github.io/progressive-alliance/about.html"
-            data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="true">        
-      </div>
-    </div>
+    <div id="social-media" class="container text-center center-block"></div>
 
 
     <hr id="footer-hr">
@@ -171,6 +161,8 @@
     <script src="javascripts/bootstrap.min.js"></script>
     <!-- Non-Bootstrap js -->
     <script src="javascripts/script.js"></script>
+    <!-- Page-specific js -->
+    <script src="javascripts/write.js"></script>
     
   </body>
 </html>

@@ -64,8 +64,25 @@ body {
 }
 
 
+/** SOCIAL MEDIA **/
+#social-media-hr {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+#like {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#tweet {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
 /** FOOTER **/
 #footer-hr {
-    margin-top: 75px;
+    margin-top: 25px;
     margin-bottom: 25px;
 }
